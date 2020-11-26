@@ -40,12 +40,12 @@ function Items(props) {
               </button>
             </>
           ) : (
-            <>
-              <li className="list">{item.text}</li>
-              <button onClick={() => editFn(item.id, item.text)}>EDIT</button>
-              <button onClick={() => deleteFun(item.id)}>DELETE</button>
-            </>
+            <li className="list">{item.text}</li>
           )}
+          <>
+            <button onClick={() => editFn(item.id, item.text)}>EDIT</button>
+            <button onClick={() => deleteFun(item.id)}>DELETE</button>
+          </>
         </div>
       ))}
     </>
