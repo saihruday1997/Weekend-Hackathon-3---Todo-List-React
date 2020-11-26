@@ -36,6 +36,7 @@ function Items(props) {
                     setEditstate(false);
                     saveFun(curritem);
                   }}
+                  disabled={curritem.text === ""}
                 >
                   SAVE
                 </button>
