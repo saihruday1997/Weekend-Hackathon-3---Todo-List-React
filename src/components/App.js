@@ -34,6 +34,10 @@ function App() {
   };
 
   const saveClick = (item) => {
+    if (item.text === "") {
+      return;
+    }
+
     let listCopy = [...list];
     for (let i = 0; i < listCopy.length; i++) {
       if (listCopy[i].id === item.id) {
@@ -50,7 +54,12 @@ function App() {
         as tests depend on the type of component.
       </div>
 
-      <input id="task" type="text" onChange={handleChange} />
+      <input
+        id="task"
+        type="text"
+        onChange={handleChange}
+        value={curritem.text}
+      />
       <button id="btn" onClick={addClick}>
         ADD
       </button>

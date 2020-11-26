@@ -26,8 +26,8 @@ function Items(props) {
               <input
                 id="editTask"
                 type="text"
-                defaultValue={item.text}
                 onChange={textEdit}
+                value={item.text}
               />
               <button
                 id="saveTask"
