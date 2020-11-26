@@ -21,31 +21,31 @@ function Items(props) {
     <>
       {itemList.map((item, index) => (
         <div key={item.id}>
-          {editstate === true ? (
-            <>
-              <input
-                id="editTask"
-                type="text"
-                onChange={textEdit}
-                value={item.text}
-              />
-              <button
-                id="saveTask"
-                onClick={() => {
-                  setEditstate(false);
-                  saveFun(curritem);
-                }}
-              >
-                SAVE
-              </button>
-            </>
-          ) : (
-            <li className="list">{item.text}</li>
-          )}
-          <>
-            <button onClick={() => editFn(item.id, item.text)}>EDIT</button>
-            <button onClick={() => deleteFun(item.id)}>DELETE</button>
-          </>
+          <li className="list">
+            {editstate ? (
+              <>
+                <input
+                  id="editTask"
+                  type="text"
+                  defaultValue={item.text}
+                  onChange={textEdit}
+                />
+                <button
+                  id="saveTask"
+                  onClick={() => {
+                    setEditstate(false);
+                    saveFun(curritem);
+                  }}
+                >
+                  SAVE
+                </button>
+              </>
+            ) : (
+              item.text
+            )}
+          </li>
+          <button onClick={() => editFn(item.id, item.text)}>EDIT</button>
+          <button onClick={() => deleteFun(item.id)}>DELETE</button>
         </div>
       ))}
     </>
