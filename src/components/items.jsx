@@ -20,7 +20,7 @@ function Items(props) {
   return (
     <>
       {itemList.map((item, index) => (
-        <div className="list" key={item.id}>
+        <div key={item.id}>
           {editstate === true ? (
             <>
               <input
@@ -41,7 +41,7 @@ function Items(props) {
             </>
           ) : (
             <>
-              {item.text}
+              <li className="list">{item.text}</li>
               <button onClick={() => editFn(item.id, item.text)}>EDIT</button>
               <button onClick={() => deleteFun(item.id)}>DELETE</button>
             </>

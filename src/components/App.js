@@ -23,7 +23,7 @@ function App() {
     listCopy.push(curritem);
     setList(listCopy);
 
-    setCurritem({ id: curritem.id + 1, text: curritem.text });
+    setCurritem({ id: curritem.id + 1, text: "" });
 
     console.log(list);
   };
