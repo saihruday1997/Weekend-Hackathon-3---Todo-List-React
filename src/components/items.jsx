@@ -4,14 +4,48 @@ import "./../styles/App.css";
 function Items(props) {
   let itemList = props.list;
   let deleteFun = props.onDelete;
+  let saveFun = props.onSave;
+  const [editstate, setEditstate] = useState(false);
+  const [curritem, setCurritem] = useState({ id: 0, text: "" });
+
+  const editFn = (id, text) => {
+    setEditstate(true);
+    setCurritem({ id: id, text: text });
+  };
+
+  const textEdit = (event) => {
+    setCurritem({ id: curritem.id, text: event.target.value });
+  };
 
   return (
     <>
-      {itemList.map((item) => (
+      {itemList.map((item, index) => (
         <div className="list" key={item.id}>
-          {item.text}
-          <button onClick={console.log("edit")}>EDIT</button>
-          <button onClick={() => deleteFun(item.id)}>DELETE</button>
+          {editstate === true ? (
+            <>
+              <input
+                id="editTask"
+                type="text"
+                defaultValue={item.text}
+                onChange={textEdit}
+              />
+              <button
+                id="saveTask"
+                onClick={() => {
+                  setEditstate(false);
+                  saveFun(curritem);
+                }}
+              >
+                SAVE
+              </button>
+            </>
+          ) : (
+            <>
+              {item.text}
+              <button onClick={() => editFn(item.id, item.text)}>EDIT</button>
+              <button onClick={() => deleteFun(item.id)}>DELETE</button>
+            </>
+          )}
         </div>
       ))}
     </>

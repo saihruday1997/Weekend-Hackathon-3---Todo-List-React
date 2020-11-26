@@ -29,6 +29,16 @@ function App() {
     setList(listCopy);
   };
 
+  const saveClick = (item) => {
+    let listCopy = [...list];
+    for (let i = 0; i < listCopy.length; i++) {
+      if (listCopy[i].id === item.id) {
+        listCopy[i].text = item.text;
+      }
+      setList(listCopy);
+    }
+  };
+
   return (
     <>
       <div id="main">
@@ -36,12 +46,12 @@ function App() {
         as tests depend on the type of component.
       </div>
 
-      <input id="task" type="text" onChange={handleChange}></input>
+      <input id="task" type="text" onChange={handleChange} />
       <button id="btn" onClick={addClick}>
         ADD
       </button>
 
-      <Items list={list} onDelete={deleteClick} />
+      <Items list={list} onDelete={deleteClick} onSave={saveClick} />
     </>
   );
 }
