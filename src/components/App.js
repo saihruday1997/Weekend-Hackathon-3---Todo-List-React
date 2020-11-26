@@ -15,6 +15,10 @@ function App() {
   const addClick = () => {
     console.log("bc");
 
+    if (curritem.text === "") {
+      return;
+    }
+
     let listCopy = [...list];
     listCopy.push(curritem);
     setList(listCopy);
