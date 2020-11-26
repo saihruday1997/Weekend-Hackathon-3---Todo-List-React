@@ -22,7 +22,9 @@ function Items(props) {
       {itemList.map((item, index) => (
         <div key={item.id}>
           <li className="list">
-            {editstate ? (
+            {!editstate ? (
+              item.text
+            ) : (
               <>
                 <input
                   id="editTask"
@@ -41,8 +43,6 @@ function Items(props) {
                   SAVE
                 </button>
               </>
-            ) : (
-              item.text
             )}
           </li>
           <button onClick={() => editFn(item.id, item.text)}>EDIT</button>
