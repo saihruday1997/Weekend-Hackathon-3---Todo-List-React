@@ -64,7 +64,7 @@ function App() {
         ADD
       </button>
 
-      <Items list={list} onDelete={deleteClick} onSave={saveClick} />
+      <Items list={[...list]} onDelete={deleteClick} onSave={saveClick} />
     </>
   );
 }
