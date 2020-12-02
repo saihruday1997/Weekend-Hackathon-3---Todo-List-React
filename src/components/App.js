@@ -38,7 +38,7 @@ function App() {
   };
 
   const saveClick = (item) => {
-    if (item.text === "") {
+    if (item === undefined || item.text === undefined || item.text === "") {
       return;
     }
 
