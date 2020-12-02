@@ -15,7 +15,11 @@ function App() {
   const addClick = () => {
     console.log("bc");
 
-    if (curritem.text === "") {
+    if (
+      curritem === undefined ||
+      curritem.text === undefined ||
+      curritem.text === ""
+    ) {
       return;
     }
 
